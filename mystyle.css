@@ -1,0 +1,62 @@
+
+.App{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.area_dropdown{
+    display:inline;
+    padding:5%;
+}
+
+.speciality_dropdown{
+     display: inline;
+     padding:5%;
+}
+
+.review_dropdown{
+    display: inline;
+    padding:5%;
+}
+
+.doctor_dropdown{
+    display: inline;
+    padding:5%;
+}
+.wrap{
+    padding: 50px;
+}
+.doctor-info{
+    border:1px solid grey;
+    padding: 10px; 
+    min-width:100px;
+    margin: 0 auto;
+    display: inline-block;
+    overflow: hidden;
+}
+
+table {
+    border-collapse: collapse;
+    margin:0px auto;
+    text-align: center;
+    
+}
+
+th {
+    background: lightblue;
+      padding: 0.5rem;
+}
+
+td{
+    padding: 0.5rem;
+}
+
+.col1 {
+
+float: left;
+}
+
+.col2{
+    float: left;
+ font-weight: bold;
+}

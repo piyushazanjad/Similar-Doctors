@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="doctorApp">
+
+<head>
+    <title>Suggest me a doctor</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.6/angular-sanitize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+</head>
+
+<body ng-controller="DoctorController">
+    <div class="App">
+        <div class="area_dropdown">
+            <h3>FILTER A DOCTOR</h3>
+
+            <select ng-model="ar" ng-change="changeArea(ar)" ng-options="area as area.area for area in areas | unique: 'area'">
+            <option value="" selected>Select an Area</option>
+            </select>
+        </div>
+
+        <div class="speciality_dropdown">
+            <!--<h3>Select an Specialty</h3>-->
+            <select ng-model="sp" ng-change="changeDoctors(sp)" ng-options="spec for spec in specs | unique: 'spec'">
+            <option value="">Select a Specialization</option>
+            </select>
+        </div>
+        <!--<h4>Select doctor's rating criteria(more than and equal to)</h4>-->
+        <div class="review_dropdown">
+            <select ng-model="rating" ng-change="changeDocs(rating)" ng-init="rating=0" ng-options="n for n in [] | range:5">
+              <option value="">Select a Rating</option>
+              </select>
+        </div>
+        <!--<h3>Select a Doctor</h3>-->
+        <div class="doctor_dropdown">
+            <select ng-model="dx" ng-change="showDocInfo(dx)" ng-options="d for d in docs">
+              <option value="">Select a Doctor</option>
+              </select>
+        </div>
+        <div class="wrap">
+            <div ng-hide="myVar" class="doctor-info">
+                <div> <span class="col1">Name of Doctor:   </span> <span class="col2">{{mydoc.name}}</span></div>
+                <div> <span class="col1">Area of Doctor:    </span> <span class="col2">{{mydoc.area}}</span></div>
+                <div> <span class="col1">Specialty of Doctor:</span> <span class="col2">{{mydoc.sp}}</span></div>
+                <div> <span class="col1">Rating of Doctor: </span> <span class="col2">{{mydoc.r}}</span></div>
+            </div>
+        </div>
+        <div ng-hide="myDocs" class="suggested-doctors">
+            <h3>Suggested Doctors</h3>
+            <table border=1>
+                <tr>
+                    <th>Name</th>
+                    <th>Specialty</th>
+                    <th>Area</th>
+                    <th>Rating</th>
+                </tr>
+                <tr ng-repeat="other in others | orderBy: '-rating'">
+                    <td>{{other.name}}</td>
+                    <td>{{other.speciality}}</td>
+                    <td>{{other.area}}</td>
+                    <td>{{other.rating}}</td>
+                </tr>
+            </table>
+        </div>
+        <script type="text/javascript" src="index.js"></script>
+
+    </div>
+</body>
+
+</html>  
